@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/new}">Crear nuevo producto</a>
+<h1>Mi lista de productos</h1>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        <th>Observaciones</th>
+    </tr>
+    <form method="post" action="#"
+              th:action="@{/tachar}"
+          th:object="${producto}">
+
+    <tr th:each="producto : ${lista}">
+        <td th:text="${producto.nombre}">Nombre</td>
+        <td th:text="${producto.cantidad}">2</td>
+        <td th:text="${producto.observaciones}">Observaciones</td>
+        <th><input type="submit" value="Tachar" /></th>
+    </tr>
+    </form>
+</table>
+
+
+</body>
+</html>
